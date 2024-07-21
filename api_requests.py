@@ -45,6 +45,15 @@ class Character:
             return None
         
         return requests.get(url=self.char_url + "/?page=" + str(number)).json()
+    
+    def get_single_character(self, id: int) -> dict:
+        
+        if id is None:
+            return None
+        
+        result = requests.get(url=self.char_url + "/" + str(id)).json()
+
+        return result
 
 
 
