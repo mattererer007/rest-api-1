@@ -54,6 +54,39 @@ class Character:
         result = requests.get(url=self.char_url + "/" + str(id)).json()
 
         return result
+    
+    # Pull API data in a single JSON file
+    def get_and_combine_all_data(self):
+
+        pages_data = []
+        page = 1
+
+        while page <= self.page_count:
+            try:
+                response = requests.get(url=self.char_url + "/?page=" + str(page))
+                response.raise_for_status() # Make sure that request was made
+                data = response.json()
+                results = data["results"]
+                for char in results:
+                    pages_data.append(char)
+            except requests.exceptions.HTTPError as http_err:
+                    print(f"HTTP error occurred: {http_err}")
+            except Exception as e:
+                print(f"Other error occurred: {e}")
+            
+            page += 1
+
+        return pages_data
+
+
+
+
+
+
+
+
+
+
 
 
 
