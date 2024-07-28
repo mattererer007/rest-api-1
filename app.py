@@ -10,8 +10,8 @@ app = Flask(__name__)
 #Database Configuration
 DB_USER = "postgres"
 DB_PW = "oconnellcrew"
-DB_NAME = "postgres"
-DB_HOST = "postgres-1.c7uq26a4i035.us-east-2.rds.amazonaws.com"
+DB_NAME = "database-2"
+DB_HOST = "database-2.c7uq26a4i035.us-east-2.rds.amazonaws.com"
 DB_PORT = "5432"
 
 # connect to database with a string in the format of dialect+driver://username:password@host:port/database 
